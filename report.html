@@ -18370,8 +18370,8 @@ zMzMsnCHyczMzMzMLIv/BwsRP33VigUpAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>0.4430 + 0.2638 = 0.7068; 0.4430 + 0.2638 + 0.1231 + 0.1012 = 0.9311;</p>
-<p>The first principal component's explained variance is 0.4430.Milk, Grocery and Detergents_Paper decreases when it increases.Detergents_Paper has the highest correlation with the  first principal.We can know about Milk, Grocery and Detergents_Paper from the first principal.</p>
-<p>When the second principal component decreses, Fresh, Frozen and Delicatessen increases.And Fresh has the highest correlation with it.We can know about Milk, Grocery and Detergents_Paper from the second principal.</p>
+<p>The first principal component's explained variance is 0.4430.In terms of customers spending, since PCA deals with the variance of the data and the correlation between features, the first component would represent that we have some customers who purchase a lot of Frozen, Fresh and Detergents_Paper products while other customers purchase very few amounts of Milk, Grocery and Delicatessen, hence spread in the data. So maybe retail spending.</p>
+<p>When the second principal component decreses, Fresh, Frozen and Delicatessen increases.It gathers additional 26.38% variation maily from Fresh ,Frozen and Deli features.The first two principal component covers about 70.68% indicates that most data variations are covered in pca1 and pca2.We can see that Fresh, Frozen and Delicatessen are maily sold.</p>
 <p>When the third principal component decreses, Frozen and Delicatessen decreses as well, while Fresh increses.Fresh has the highest correlation with it.</p>
 <p>When the forth principal component decreses, Frozen and Delicatessen increse.</p>
 <p>We can assume that this store mainly sells Frozen, Fresh and Detergents_Paper, the other two is few.</p>
@@ -18604,7 +18604,7 @@ zMzMsnCHyczMzMzMLIv/BwsRP33VigUpAAAAAElFTkSuQmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xc79e4a8&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xbaeac50&gt;</pre>
 </div>
 
 </div>
@@ -20660,15 +20660,73 @@ Sample point 2 predicted to be in Cluster 0
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_preds</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s2">&quot;Sample point&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;predicted to be in Cluster&quot;</span><span class="p">,</span> <span class="n">pred</span>
+    <span class="k">print</span> <span class="s1">&#39;The distance between sample point {} and center of cluster {}:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">true_centers</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">pred</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sample point 0 predicted to be in Cluster 1
+The distance between sample point 0 and center of cluster 1:
+Fresh               8664.0
+Milk                1756.0
+Grocery            -4543.0
+Frozen              -738.0
+Detergents_Paper   -1887.0
+Delicatessen         302.0
+dtype: float64
+Sample point 1 predicted to be in Cluster 1
+The distance between sample point 1 and center of cluster 1:
+Fresh                -938.0
+Milk                 5340.0
+Grocery             11023.0
+Frozen               2989.0
+Detergents_Paper     5398.0
+Delicatessen         -305.0
+dtype: float64
+Sample point 2 predicted to be in Cluster 0
+The distance between sample point 2 and center of cluster 0:
+Fresh              -4421.0
+Milk                -991.0
+Grocery            -1239.0
+Frozen              1488.0
+Detergents_Paper    -141.0
+Delicatessen         333.0
+dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong></p>
-<p>Customer 1 (Index 0): It belongs to cluster 1 which presents grocery.While I predict it to be a food supermarket.</p>
-<p>Customer 2 (Index 200): It belongs to cluster 1, which is corresponding with my prediction that it should be a grocery.</p>
-<p>Customer 3 (Index 400):It belongs to cluster 0 which presents a food supermarket.It is corresponding with my prediction that it should be a retailer.</p>
+<p><strong>Answer:</strong>
+For Sample 1, the values for 'Fresh', 'Milk' are above average and resemble the Cluster 1 center in those categories. 'Delicatessen' is near average for both sample and the predicted cluster, and so the predicted cluster seems to be consistent with the category spending of the sample.So grocery.</p>
+<p>For Sample 2, the values for 'Grocery', 'Milk', 'Frozen' and 'Detergents_Paper' are above average and resemble the Cluster 1 center in those categories. 'Delicatessen' is near average for both sample and the predicted cluster, and so the predicted cluster seems to be consistent with the category spending of the sample.So grocery.</p>
+<p>For Sample 3, the values for 'Frozon' are above average and resemble the Cluster 0 center in those categories. 'Delicatessen' and 'Detergents_Paper' is near average for both sample and the predicted cluster, and so the predicted cluster seems to be consistent with the category spending of the sample.So food supermarket.</p>
 
 </div>
 </div>
@@ -20751,7 +20809,7 @@ Sample point 2 predicted to be in Cluster 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
