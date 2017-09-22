@@ -18370,11 +18370,9 @@ zMzMsnCHyczMzMzMLIv/BwsRP33VigUpAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>0.4430 + 0.2638 = 0.7068; 0.4430 + 0.2638 + 0.1231 + 0.1012 = 0.9311;</p>
-<p>The first principal component's explained variance is 0.4430.In terms of customers spending, since PCA deals with the variance of the data and the correlation between features, the first component would represent that we have some customers who purchase a lot of Frozen, Fresh and Detergents_Paper products while other customers purchase very few amounts of Milk, Grocery and Delicatessen, hence spread in the data. So maybe retail spending.</p>
-<p>When the second principal component decreses, Fresh, Frozen and Delicatessen increases.It gathers additional 26.38% variation maily from Fresh ,Frozen and Deli features.The first two principal component covers about 70.68% indicates that most data variations are covered in pca1 and pca2.We can see that Fresh, Frozen and Delicatessen are maily sold.</p>
-<p>When the third principal component decreses, Frozen and Delicatessen decreses as well, while Fresh increses.Fresh has the highest correlation with it.</p>
-<p>When the forth principal component decreses, Frozen and Delicatessen increse.</p>
-<p>We can assume that this store mainly sells Frozen, Fresh and Detergents_Paper, the other two is few.</p>
+<p>Dimension 1 indicates that a customer who buys Detergents_Paper, is likely to buy Grocery and Milk with less amount, and the amount of Grocery and Milk is almost the same.But customers who buy Detergents_Paper, Grocery and Milk would rarely buy Fresh or Frozen.</p>
+<p>Dimension 2 indicates that, once a customer buy one of these products, there is a high possiblity that he will buy other products of these categories.And the amount follow the rule that Fresh &gt; Frozen, Delicatessen &gt; Milk &gt; Grocery &gt; Detergents_Paper.</p>
+<p>Dimension 3 indicates that a customer who buys Fresh is likely to buy Detergents_Paper as well.And The more Fresh he buys, the less possibility he would buy Delicatessen and Frozon.</p>
 
 </div>
 </div>
